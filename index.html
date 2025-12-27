@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Empathy Museum – Persona Test</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>Empathy Museum – Persona Test</h1>
+
+  <form id="quizForm">
+
+    <!-- QUESTIONS -->
+    <div class="question">
+      <p>1. When you enter a museum, what are you mostly looking for?</p>
+      <label><input type="radio" name="q1" value="A"> To understand myself better</label>
+      <label><input type="radio" name="q1" value="B"> To feel connected to others</label>
+      <label><input type="radio" name="q1" value="C"> To feel safe and emotionally lighter</label>
+      <label><input type="radio" name="q1" value="D"> To explore deep ideas and emotions</label>
+      <label><input type="radio" name="q1" value="E"> To feel seen and included</label>
+    </div>
+
+    <!-- (aynı yapı 2–10 arası, senin kullandığın HALİYLE devam ediyor) -->
+
+    <button type="button" onclick="showResults()">See Results</button>
+  </form>
+</div>
+
+<!-- MODAL (BAŞTA GİZLİ) -->
+<div id="resultModal" class="modal hidden">
+  <div class="modal-content">
+
+    <div id="loading">
+      <p>🔍 Analysing your emotional pattern…</p>
+      <div class="progress">
+        <div id="bar"></div>
+      </div>
+    </div>
+
+    <div id="finalResult" class="hidden">
+      <h2 id="personaTitle"></h2>
+      <p id="personaText"></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
