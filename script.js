@@ -1,66 +1,33 @@
-function calculateResult() {
-  const scores = {
-    self: 0,
-    connector: 0,
-    healing: 0,
-    thinker: 0,
-    outsider: 0
-  };
+function showResults() {
+
+  const modal = document.getElementById("resultModal");
+  modal.classList.remove("hidden");
+
+  const scores = { A:0, B:0, C:0, D:0, E:0 };
 
   for (let i = 1; i <= 10; i++) {
     const answer = document.querySelector(`input[name="q${i}"]:checked`);
-    if (!answer) {
-      alert("Please answer all questions.");
-      return;
-    }
-
-    switch (answer.value) {
-      case "A": scores.self++; break;
-      case "B": scores.connector++; break;
-      case "C": scores.healing++; break;
-      case "D": scores.thinker++; break;
-      case "E": scores.outsider++; break;
-    }
+    if (answer) scores[answer.value]++;
   }
 
-  document.getElementById("modal").classList.remove("hidden");
+  document.getElementById("bar").style.width = "100%";
 
-  let progress = 0;
-  const bar = document.getElementById("progress");
+  setTimeout(() => {
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("finalResult").classList.remove("hidden");
 
-  const interval = setInterval(() => {
-    progress++;
-    bar.style.width = progress + "%";
+    const result = Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
 
-    if (progress >= 100) {
-      clearInterval(interval);
-      showResult(scores);
-    }
-  }, 50);
-}
+    const personas = {
+      A: ["🧭 Self Explorer", "You are searching for meaning, identity, and clarity."],
+      B: ["🤝 Connector", "You value emotional connection and shared understanding."],
+      C: ["🌱 Healing Searcher", "You are healing at your own pace, gently and honestly."],
+      D: ["🧠 Sensitive Thinker", "You live in depth, reflection, and meaning."],
+      E: ["🌍 Outsider", "You long to be seen, included, and understood."]
+    };
 
-function showResult(scores) {
-  const personas = {
-    self: { name: "Self Explorer", emoji: "🧭", color: "#6C63FF" },
-    connector: { name: "Connector", emoji: "🤝", color: "#00C9A7" },
-    healing: { name: "Healing Searcher", emoji: "🌱", color: "#A3D977" },
-    thinker: { name: "Sensitive Thinker", emoji: "🧠", color: "#F4A261" },
-    outsider: { name: "Outsider", emoji: "🌍", color: "#E76F51" }
-  };
+    document.getElementById("personaTitle").innerText = personas[result][0];
+    document.getElementById("personaText").innerText = personas[result][1];
 
-  const winner = Object.keys(scores).reduce((a, b) =>
-    scores[a] > scores[b] ? a : b
-  );
-
-  document.getElementById("analysis").style.display = "none";
-
-  const result = document.getElementById("result");
-  result.style.borderColor = personas[winner].color;
-
-  result.innerHTML = `
-    <h2>${personas[winner].emoji} ${personas[winner].name}</h2>
-    <p>This space reflects your dominant emotional pattern.</p>
-  `;
-
-  result.classList.remove("hidden");
+  }, 5000);
 }
