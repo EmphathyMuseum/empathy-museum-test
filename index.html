@@ -13,7 +13,7 @@
   <form id="quiz">
 
     <!-- QUESTIONS -->
-    <div class="question" data-q="1">
+    <div class="question">
       <p>1. When you enter a museum, what are you mostly looking for?</p>
       <label><input type="radio" name="q1" value="A"> A. To understand myself better</label>
       <label><input type="radio" name="q1" value="B"> B. To feel connected to others</label>
@@ -105,13 +105,22 @@
 
     <button type="button" onclick="calculateResult()">See Result</button>
   </form>
+</div>
 
-  <div id="analysis" class="hidden">
-    <p>Analyzing your emotional pattern…</p>
-    <div class="bar"><div id="progress"></div></div>
+<!-- MODAL -->
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+
+    <div id="analysis">
+      <p>Analyzing your emotional pattern…</p>
+      <div class="bar">
+        <div id="progress"></div>
+      </div>
+    </div>
+
+    <div id="result" class="hidden"></div>
+
   </div>
-
-  <div id="result" class="hidden"></div>
 </div>
 
 <script src="script.js"></script>
