@@ -32,25 +32,56 @@ button {
   display: none;
 }
 
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: #1a1a1a;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 14px;
+  text-align: center;
+  animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .bar {
   width: 100%;
   background: #333;
   height: 10px;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 #progress {
   height: 100%;
   width: 0;
   background: white;
-  transition: width 0.1s linear;
 }
 
 #result {
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 20px;
   border: 2px solid;
-  animation: fadeIn 1s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
 }
 
 @keyframes fadeIn {
