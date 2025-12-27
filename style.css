@@ -1,13 +1,11 @@
 body {
-  background: #111;
-  color: white;
   font-family: Arial, sans-serif;
+  background: #f4f4f4;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 750px;
   margin: auto;
-  padding: 20px;
 }
 
 .question {
@@ -17,19 +15,12 @@ body {
 label {
   display: block;
   margin: 6px 0;
-  cursor: pointer;
 }
 
 button {
-  padding: 12px 20px;
-  background: white;
-  border: none;
+  padding: 12px 22px;
+  font-size: 16px;
   cursor: pointer;
-  margin-top: 20px;
-}
-
-.hidden {
-  display: none;
 }
 
 /* MODAL */
@@ -38,59 +29,41 @@ button {
   inset: 0;
   background: rgba(0,0,0,0.6);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 999;
+  align-items: center;
 }
 
-.modal-box {
-  background: #1a1a1a;
+.hidden {
+  display: none;
+}
+
+.modal-content {
+  background: #fff;
   padding: 30px;
+  border-radius: 12px;
   width: 90%;
-  max-width: 500px;
-  border-radius: 14px;
+  max-width: 420px;
   text-align: center;
-  animation: scaleIn 0.5s ease forwards;
+  animation: fadeIn 0.6s ease;
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.bar {
+.progress {
   width: 100%;
-  background: #333;
-  height: 10px;
-  margin-top: 12px;
+  height: 12px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-top: 15px;
+  overflow: hidden;
 }
 
-#progress {
+#bar {
   height: 100%;
-  width: 0;
-  background: white;
-}
-
-#result {
-  margin-top: 20px;
-  padding: 20px;
-  border: 2px solid;
-  animation: fadeIn 0.8s ease forwards;
+  width: 0%;
+  background: linear-gradient(90deg,#6a11cb,#2575fc);
+  transition: width 5s linear;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from {opacity:0; transform:scale(0.9);}
+  to {opacity:1; transform:scale(1);}
 }
