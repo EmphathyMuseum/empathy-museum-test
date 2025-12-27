@@ -23,7 +23,7 @@ function calculateResult() {
     }
   }
 
-  document.getElementById("analysis").classList.remove("hidden");
+  document.getElementById("modal").classList.remove("hidden");
 
   let progress = 0;
   const bar = document.getElementById("progress");
@@ -36,7 +36,7 @@ function calculateResult() {
       clearInterval(interval);
       showResult(scores);
     }
-  }, 50); // ~5 saniye
+  }, 50);
 }
 
 function showResult(scores) {
@@ -52,12 +52,14 @@ function showResult(scores) {
     scores[a] > scores[b] ? a : b
   );
 
+  document.getElementById("analysis").style.display = "none";
+
   const result = document.getElementById("result");
   result.style.borderColor = personas[winner].color;
 
   result.innerHTML = `
     <h2>${personas[winner].emoji} ${personas[winner].name}</h2>
-    <p>This result reflects your dominant emotional pattern.</p>
+    <p>This space reflects your dominant emotional pattern.</p>
   `;
 
   result.classList.remove("hidden");
