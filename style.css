@@ -1,0 +1,65 @@
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 6px 0;
+  cursor: pointer;
+}
+
+button {
+  padding: 12px 20px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.bar {
+  width: 100%;
+  background: #333;
+  height: 10px;
+  margin-top: 10px;
+}
+
+#progress {
+  height: 100%;
+  width: 0;
+  background: white;
+  transition: width 0.1s linear;
+}
+
+#result {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid;
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
